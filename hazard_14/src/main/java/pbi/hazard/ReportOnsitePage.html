@@ -1,0 +1,52 @@
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+<script>
+//https://cwiki.apache.org/WICKET/adding-javascript-or-css-using-a-resource.html
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+
+</head>
+
+<body>
+	<h2>Hazard Liste - Tilstede ved Tr&aelig;kning</h2>
+	<p>
+		<input class="nopic" type="button" value="Tilbage" name="return" id="return" wicket:id="return" accesskey="0">
+		<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn"
+			onclick="clickElement('return');">
+	</p>
+	<span class="feedback" wicket:id="feedback">[feedbackmessages will be put here]</span>
+	<br>
+
+	<form wicket:id="form" action="">
+<table border="1" width="500">
+			<tbody>
+				<tr class="filter">
+					<td>Fra: <input type="text" size="10" wicket:id="dateTextStart"/></td>
+					<td>Til: <input type="text" size="10" wicket:id="dateTextStop"/></td>
+					<td align="center"><input type="submit" value="S&oslash;g"/></td>
+				</tr>
+			</tbody>
+		</table>
+<table>
+ <tr > <!--  wicket:id="rows"-->
+ <td wicket:id="cols"><span wicket:id="panel">panel</span></td>
+ </tr>
+ </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+
+<body>
+
+	<h2>Hj&aelig;lp</h2>
+
+	<!-- Making the Image OnClick Work in Both Browsers: http://www.devx.com/tips/Tip/5281 -->
+
+	<!-- 	<input type="button" accesskey="0" wicket:id="return"
+		value="Tilbage (0)"> -->
+	<!-- width:0px -->
+	<input class="nopic" type="button" value="Tilbage" name="return"
+		id="return" wicket:id="return" accesskey="0">
+	<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn"
+		onclick="clickElement('return');">
+	<!-- 		onclick="document.getElementById('return').click();"> -->
+	<p />
+
+	<table class="smallborder">
+		<thead>
+			<tr class="head">
+				<th align="center">Menupunkt</th>
+				<th align="center">Funktion</th>
+				<th align="center">Undermenu</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="even">
+				<td class="border">Hj&aelig;lp</td>
+				<td class="border">Denne side</td>
+				<td class="border"></td>
+			</tr>
+			<tr class="odd">
+				<td class="border">Medlemmer/Kartotek</td>
+				<td class="border">S&oslash;g medlem og ret oplysninger<br>Opret
+					nyt medlem</td>
+				<td class="border">Indtast oplysninger<br>OBS: Ingen
+					advarsel hvis siden forlades uden at gemme f&oslash;rst!</td>
+			</tr>
+			<tr class="even">
+				<td class="border">Tr&aelig;kning</td>
+				<td class="border">Opret / Kopier Tr&aelig;kning</td>
+				<td class="border">Indtast kapsel-nr, eller klik på navn<br>
+				Husk at v&aelig;lge <b>Afslut</b> efter sidste medlem er trukket,<br>
+				derved oprettes de lister der bruges senere.</td>
+			</tr>
+			<tr class="odd">
+				<td class="border">Lister / Rapporter</td>
+				<td class="border">Lister / Rapporter</td>
+				<td class="border"></td>
+			</tr>
+			<tr class="even">
+				<td class="border">Afslut program og luk database</td>
+				<td class="border">LUK</td>
+				<td class="border"></td>
+			</tr>
+			<tr class="odd">
+				<td class="border" align="center">Generelt</td>
+				<td class="border">Hold musen over kapsel-nr.</td>
+				<td class="border">Viser info om medlem</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<b>OBS:</b> Brug ikke Browserens Tilbage funktion
+	</p>
+	<p>
+	<b>Firefox:</b> Check: Arbejd offline
+	</p>
+	<p>
+	<p>
+	<p>
+<a href="http://www.axialis.com/free/icons">Icons</a> by <a href="http://www.axialis.com">Axialis Team</a>
+</body>
+</html>

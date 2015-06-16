@@ -1,0 +1,155 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+<body>
+
+	<!--<script>-->
+	<!--	var hideSnow = -1;-->
+	<!--</script>-->
+	<!--<script type="text/javascript" src="Script/Snow.js"></script>-->
+
+	<!-- <form name="io"> -->
+	<!-- <input name="confirm_res" value=""> -->
+	<!-- type="hidden"  -->
+	<!-- </form> -->
+
+	<!--<h2>Hazard Tr&aelig;kning</h2>-->
+	<!--<span wicket:id="pullOut">[Tr&aelig;kning]</span>-->
+	<table class="full">
+		<tr>
+			<!--		<td width="10%"><input type="button" value="Tilbage"-->
+			<!--			onclick="window.history.back()" ></td>-->
+			<td class="w10">
+				<!-- form added to work around Wicket bug "Could not find Form parent for" -->
+				<form wicket:id="returnform">
+					<!--  label accesskey="0"><input wicket:id="pulloutlist" type="button" value="Tilbage"></label>-->
+					<input class="nopic" type="button" value="Tilbage" name="pulloutlist" id="pulloutlist" wicket:id="pulloutlist" accesskey="0" > 
+					<!--  img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" id="imgreturn" onclick="document.getElementById('return').click();">-->
+					<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn" onclick="clickElement('pulloutlist');">
+				</form> 
+			</td>
+			<td class="w70">
+				<h2 align="center" wicket:id="pullOut">[Tr&aelig;kning]</h2> 
+			</td>
+			<td class="w20r">
+				<table>
+					<tr>
+						<td>Start:</td>
+						<td><span wicket:id="pullinfo">[Date]</span>
+						</td>
+					</tr>
+				</table></td>
+		</tr>
+	</table>
+
+	<table class="smallborder">
+		<tr valign="top">
+			<td wicket:id="cols">
+				<table class="smallborder">
+					<tr wicket:id="rows" height="35">
+						<td><img wicket:id="onsite" alt="[NO]" title="[NO]">
+						</td>
+						<td align="right" wicket:id="cap">[99]</td>
+						<td wicket:id="name">[BLANKO]</td>
+					</tr>
+				</table></td>
+		</tr>
+	</table>
+	<br>
+	<table class="full">
+		<tr>
+			<td class="bottom1">
+				<table>
+					<tr>
+						<td class="w16c">Antal:</td>
+						<td class="w34l"><span wicket:id="pulled">[##]</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="onsite"><span wicket:id="onsitelabel">[label]</span>
+						</td>
+						<td class="onsite"><span wicket:id="onsitepulled">[##]</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<form wicket:id="pullform">
+								<table>
+									<tr>
+										<td>N&aelig;ste:</td>
+										<td>
+										<input type="text" dir="rtl" wicket:id="pull_cap" size="3">
+										</td>
+										<td>
+										<!--  input type="submit" value="Tr&aelig;k">-->
+										<input type="image" src="pic/Ok.png" border="0" alt="Tr&aelig;k (Enter)" title="Tr&aelig;k (Enter)">
+										</td>
+									</tr>
+								</table>
+							</form></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="feedback" wicket:id="feedback">[feedbackmessages
+								will be put here]</span>
+						</td>
+					</tr>
+				</table></td>
+			<td class="bottom2">
+				<table class="background">
+					<tr>
+						<td>
+							<!--<textarea wicket:id="text" rows="4" cols="1">Input comes here</textarea>-->
+							<table class="noborder">
+								<tr wicket:id="inforows">
+									<td wicket:id="log">[infoLog]</td>
+								</tr>
+							</table></td>
+					</tr>
+				</table></td>
+			<td class="bottom3">
+				<form wicket:id="finishform">
+								<table>
+									<tr>
+										<td>Note:</td>
+										<td colspan="2">
+										<!--   input type="text" wicket:id="note" size="40" -->
+										<input type="text" wicket:id="note" maxlength="40">
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><input type="checkbox" wicket:id="skip">
+										</td>
+										<td class="highlight">Fejl (Ingen vinder)</td>
+										<td align="right">
+										<!--  input type="submit" wicket:id="close" value="Afslut">-->
+										<input type="image" src="pic/Save.png" border="0" alt="Afslut (Enter)" title="Afslut (Enter)" wicket:id="close" >
+										</td>
+									</tr>
+								</table>
+							</form>
+							</td>
+		</tr>
+	</table>
+
+	<!-- <div wicket:id="okcancel"></div> -->
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	function goBack() {
+		window.history.back()
+	}
+
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+<body>
+<h2><span wicket:id="head">[Opret]</span> Tr&aelig;kning</h2>
+
+<form wicket:id="form" action="">
+<table>
+	<tr>
+<td>
+		
+				<input class="nopic" type="button" value="Tilbage" name="return" id="return" accesskey="0" onclick="goBack();"/> 
+			<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn" onclick="clickElement('return');"/>
+		</td>
+		<td colspan="2"><span class="feedback" wicket:id="feedback">[feedbackmessages
+		will be put here]</span></td>
+	</tr>
+	<tr>
+<td></td>
+		<td>Tr&aelig;kning navn:</td>
+		<td><input type="text" wicket:id="name">
+		<span wicket:id="copy">[Copy]</span>
+		</td>
+<td>
+		
+		<input class="nopic" type="submit" value="Ok" name="save" id="save" accesskey="1"/> 
+		<img src="pic/Ok.png" border="0" alt="Ok (Enter)" title="Ok (Enter)" id="imgsave" onclick="clickElement('save');"/>
+		</td>	</tr>
+<!--  
+	<tr>
+		<td></td>
+		<td>Kopier seneste:</td>
+		<td><span wicket:id="today">[Copy lastest Pullout from the
+		same day (onsite will be copied)]</span></td>
+		<td>
+						<input class="nopic" type="submit" value="Kopi" name="copy" id="copy" wicket:id="copy" accesskey="2"/> 
+				<img src="pic/Applications.png" border="0" alt="Kopi (Alt+2)" title="Kopi (Shift+Alt+2)" id="imgcopy" onclick="clickElement('copy');"/>
+		</td>	
+		</tr>
+		-->
+	<tr>
+		<td></td>
+		<td>Note:</td>
+		<td><input type="text" wicket:id="note" size="40"></td>
+		<td></td>
+	</tr>
+</table>
+</form>
+
+<div wicket:id="memberPanel" />
+<br />
+
+</body>
+</html>

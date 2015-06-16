@@ -1,0 +1,93 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+
+<body>
+
+	<h2>Lister / Rapporter</h2>
+
+	<br />
+
+	<table class="smallborder">
+		<tr class="head">
+			<th class="select">Valg</th>
+			<th>Output</th>
+		</tr>
+		<tr class="even">
+			<td align="center">
+				<!--  input type="button" accesskey="0" wicket:id="return" value="_(0)_"> -->
+				<input class="nopic" type="button" value="Tilbage" name="return"
+				id="return" wicket:id="return" accesskey="0"> <img
+				src="pic/Back.png" border="0" alt="Tilbage (Alt+0)"
+				title="Tilbage (Shift+Alt+0)" id="imgreturn"
+				onclick="clickElement('return');">
+			</td>
+			<td>Tilbage</td>
+		</tr>
+		<tr class="odd">
+			<td align="center">
+				<!--  input type="button" accesskey="1" wicket:id="memberlist" value="_(1)_"> -->
+				<input class="nopic" type="button" value="Medlemsliste"
+				name="memberlist" id="memberlist" wicket:id="memberlist"
+				accesskey="1"> <img src="pic/User.png" border="0"
+				alt="Medlemsliste (Alt+1)" title="Medlemsliste (Shift+Alt+1)"
+				id="imgmemberlist" onclick="clickElement('memberlist');">
+			</td>
+			<td>Medlems liste</td>
+		</tr>
+		<tr class="even">
+			<td align="center">
+				<!--  input type="button" accesskey="2" wicket:id="winner" value="_(2)_">-->
+				<input class="nopic" type="button" value="Vindere" name="winner"
+				id="winner" wicket:id="winner" accesskey="2"> <img
+				src="pic/Smiley1.png" border="0" alt="Vindere (Alt+2)"
+				title="Vindere (Shift+Alt+2)" id="imgwinner"
+				onclick="clickElement('winner');">
+			</td>
+			<td>Vindere (m. Tr&aelig;kningsliste)</td>
+		</tr>
+		<tr class="odd">
+			<td align="center"><input class="nopic" type="button"
+				value="Tilstede" name="onsite" id="onsite" wicket:id="onsite"
+				accesskey="3"> <img src="pic/Discuss.png" border="0"
+				alt="Tilstede (Alt+3)" title="Tilstede (Shift+Alt+3)" id="imgonsite"
+				onclick="clickElement('onsite');">
+			</td>
+			<td>Tilstede pr. Tr&aelig;kning</td>
+		</tr>
+		<!-- tr class="even">
+			<td align="center"><input class="nopic" type="button"
+				value="Statistik" name="statistics" id="statistics" wicket:id="statistics"
+				accesskey="4"> <img src="pic/Stats3.png" border="0"
+				alt="Statistik (Alt+4)" title="Statistik (Shift+Alt+4)" id="imgstatistics"
+				onclick="clickElement('statistics');">
+			</td>
+			<td>(IKKE KLAR) Statistik, Fordeling af medlemer (CSC, TDC, Andre)</td>
+		</tr -->
+	</table>
+
+	<br />
+	<br />
+
+	<div wicket:id="reportPanel"></div>
+
+</body>
+</html>

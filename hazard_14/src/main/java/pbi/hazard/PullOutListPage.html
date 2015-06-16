@@ -1,0 +1,74 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+<body>
+<h2>Hazard Tr&aelig;kning</h2>
+
+<form wicket:id="form" action="">
+
+<!--<span class="feedback" wicket:id="feedback">[feedbackmessages-->
+<!--will be put here]</span>-->
+
+<p>
+<!--  label accesskey="0"><button wicket:id="return">Tilbage (0)</button></label>-->
+		<input class="nopic" type="button" value="Tilbage" name="return" id="return" wicket:id="return" accesskey="0" > 
+			<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn" onclick="clickElement('return');">
+<!--  label accesskey="1"><button wicket:id="new">&nbsp;Ny (1)&nbsp;</button></label>-->
+		<input class="nopic" type="button" value="Ny" name="new" id="new" wicket:id="new" accesskey="1" > 
+			<img src="pic/Plus.png" border="0" alt="Ny Tr&aelig;kning (Alt+1)" title="Ny Tr&aelig;kning (Shift+Alt+1)" id="imgnew" onclick="clickElement('new');">
+</p>
+<table border="1">
+	<thead>
+		<tr class="head">
+			<th>Navn</th>
+			<th>Ret</th>
+			<th>Start</th>
+			<th>Stop</th>
+			<th>Note</th>
+			<th>Vinder</th>
+			<th>Vis</th>
+			<th>V&aelig;lg</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr wicket:id="rows">
+			<td class="list" wicket:id="name">[xyz]</td>
+			<td class="list">
+			<button wicket:id="change">Ret</button>
+			</td>
+			<td class="list" wicket:id="start">[date1]</td>
+			<td class="list" wicket:id="stop">[date2]</td>
+			<td class="list" wicket:id="note">[note]</td>
+			<td class="list" wicket:id="winner">[0]</td>
+			<td class="list">
+			<button wicket:id="show">Vis</button>
+			</td>
+			<td class="list">
+			<button wicket:id="select">V&aelig;lg</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+</form>
+
+</body>
+</html>

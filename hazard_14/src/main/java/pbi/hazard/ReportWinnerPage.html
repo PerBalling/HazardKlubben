@@ -1,0 +1,84 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h2>Hazard Liste - Vindere</h2>
+	<p>
+<!-- 		<label accesskey="0"><button wicket:id="return">Tilbage
+				(0)</button> </label> -->
+		<!--  input type="button" accesskey="0" wicket:id="return" value="Tilbage (0)" />-->
+		<input class="nopic" type="button" value="Tilbage" name="return" id="return" wicket:id="return" accesskey="0" > 
+		<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn" onclick="clickElement('return');">
+	</p>
+	<span class="feedback" wicket:id="feedback">[feedbackmessages
+		will be put here]</span>
+	<br>
+
+	<form wicket:id="form" action="">
+<!--  span wicket:id="count">###</span> -->
+		<table border="1">
+			<thead>
+				<tr class="head">
+					<th>Tr&aelig;kning</th>
+					<th>Start</th>
+					<th>Stop</th>
+					<th>Note</th>
+					<th>Nr.</th>
+					<th>Vinder</th>
+					<th>Vis liste</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="filter">
+					<td></td>
+					<td><input type="text" size="10" wicket:id="dateTextStart">
+						<!-- 					<span wicket:id="dateFieldPicker" /> -->
+					</td>
+					<td><input type="text" size="10" wicket:id="dateTextStop">
+						<!-- 					<span wicket:id="dateFieldPicker" /> -->
+					</td>
+					<td></td>
+					<td></td>
+					<td align="center">
+					</td>
+					<td align="center">
+					<input type="submit" value="S&oslash;g">
+						<input type="submit" wicket:id="reset" value="Nulstil">
+					</td>
+				</tr>
+
+				<tr wicket:id="rows">
+					<td class="list" wicket:id="name">[xyz]</td>
+					<td class="list" wicket:id="start">[date1]</td>
+					<td class="list" wicket:id="stop">[date2]</td>
+					<td class="list" wicket:id="note">[note]</td>
+					<td class="list" wicket:id="cap">[0]</td>
+					<td class="list" wicket:id="winner">[0]</td>
+					<td align="center" class="list">
+						<button wicket:id="show">Vis</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+
+</body>
+</html>

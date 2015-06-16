@@ -1,0 +1,73 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+<body>
+	<h2>Hazard Tr&aelig;kningsliste</h2>
+	<form wicket:id="form" action="">
+		<p>
+			<!--  label accesskey="0"><button wicket:id="return">Tilbage (0)</button> </label>-->
+		<input class="nopic" type="button" value="Tilbage" name="return" id="return" wicket:id="return" accesskey="0" > 
+			<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn" onclick="clickElement('return');">
+		</p>
+		<span class="feedback" wicket:id="feedback">[feedbackmessages
+			will be put here]</span>
+
+		<!--  table class="w350"-->
+		<table>
+			<tr>
+				<td wicket:id="pulloutdate">[date]</td>
+				<td wicket:id="pulloutid">[id]</td>
+				<td><button wicket:id="change">Ret</button></td> 
+			</tr>
+			<tr>
+				<td align="center">Antal: <span wicket:id="count">[Count]</span></td>
+				<td align="center">Note:</td> 
+				<td wicket:id="note">[Note]</td> 
+			</tr>
+		</table>
+
+		<table class="smallborder">
+			<thead>
+				<tr class="head">
+					<th>Nr</th>
+					<th>Navn</th>
+					<!-- 					<th>Efternavn</th> -->
+					<th>Tilstede</th>
+					<th>Trukket</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr wicket:id="rows">
+					<td class="list" align="right" wicket:id="cap">[99]</td>
+					<td class="list" wicket:id="fullname">[BLANKO]</td>
+					<!-- 					<td class="list" wicket:id="lastname">[-]</td> -->
+					<!-- 					<td class="list" wicket:id="onsite">[-]</td> -->
+					<td class="list" align="center"><img wicket:id="onsite"
+						alt="[NO]" title="[NO]">
+					</td>
+					<td class="list" align="center" wicket:id="pulled">[IDX]</td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+	</form>
+</body>
+</html>

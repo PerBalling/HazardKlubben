@@ -1,0 +1,98 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+<body>
+<h2>Hazard Medlemsliste</h2>
+<form wicket:id="form" action=""><br>
+<!--Active:--> <!--    <span wicket:id="radiogroupactive">--> <!--      <input type="radio" wicket:id="radio1">[active]</input>-->
+<!--      <input type="radio" wicket:id="radio2">[inactive]</input>--> <!--      <input type="radio" wicket:id="radio3">[all]</input>-->
+<!--    </span>--> <!--    <button wicket:id="get">Get</button>--> <!--
+  <table style="border: 2px dotted #fc0; width: 400px; padding: 5px;">
+         <tr>
+          <td valign="top">Active</td>
+          <td>
+              <span valign="top" wicket:id="active">
+                <input type="radio">a1</input>
+                <input type="radio">a2</input>
+              </span>
+          </td>
+         </tr>
+        </table>
+--> <!--<br >-->
+<p>
+<!--  label accesskey="0"><button wicket:id="return">Tilbage (0)</button></label> -->
+		<input class="nopic" type="button" value="Tilbage" name="return" id="return" wicket:id="return" accesskey="0" > 
+			<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn" onclick="clickElement('return');">
+<!--  label accesskey="1"><button wicket:id="new">&nbsp;Ny&nbsp;(1)</button></label> -->
+		<input class="nopic" type="button" value="Ny" name="new" id="new" wicket:id="new" accesskey="1" > 
+			<img src="pic/Plus.png" border="0" alt="Nyt medlem (Alt+1)" title="Nyt medlem (Shift+Alt+1)" id="imgnew" onclick="clickElement('new');">
+</p>
+<span class="feedback" wicket:id="feedback">[feedbackmessages
+will be put here]</span> <br>
+
+<table>
+	<tr>
+		<td>Antal:</td>
+		<td wicket:id="count">[Count]</td>
+	</tr>
+</table>
+
+<table class="smallborder">
+	<thead>
+		<tr class="head">
+			<th>Nr</th>
+			<th>Fornavn</th>
+			<th>Efternavn</th>
+			<th>Aktiv</th>
+			<th>Opdateret</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="filter">
+			<td><input type="text" dir="rtl" size="4" wicket:id="capFilter"></td>
+			<td><input type="text" wicket:id="firstnameFilter"></td>
+			<td><input type="text" wicket:id="lastnameFilter"></td>
+			<td align="center"><input type="checkbox" wicket:id="activeFilter"></td>
+			<td>
+			&gt;<input type="text" size="10" wicket:id="dateFilter"/>
+			</td>
+			<td align="center"><input type="submit" value="S&oslash;g"></td>
+		</tr>
+		<tr wicket:id="rows">
+			<td class="list" align="right" wicket:id="cap">[99]</td>
+			<td class="list" wicket:id="firstname">[BLANKO]</td>
+			<td class="list" wicket:id="lastname">[-]</td>
+			<!--			<td wicket:id="active">[yes]</td>-->
+			<td class="list" align="center"><input type="checkbox" disabled="disabled"
+				wicket:id="active"></td>
+
+			<td class="list" wicket:id="updated">[DATE]</td>
+			<td class="list" >
+			<button wicket:id="edit">Ret</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<br>
+</form>
+</body>
+</html>

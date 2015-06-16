@@ -1,0 +1,98 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+
+<body>
+
+	<script>
+		var hideSnow = 10;
+	</script>
+	<!--<script type="text/javascript" src="Script/Snow.js"></script>-->
+
+	<table class="full">
+		<tr>
+			<td>
+				<h2>Hoved Menu</h2>
+			</td>
+			<td align="right"><small> <span wicket:id="version">[ver.]</span>
+			</small></td>
+		</tr>
+	</table>
+
+	<br />
+
+	<table class="smallborder">
+		<tr class="head">
+			<th class="select">V&aelig;lg</th>
+			<th>Funktion</th>
+		</tr>
+		<tr class="even">
+			<td align="center">
+				<!--  input type="button" accesskey="0" wicket:id="help" value="_(0)_">--> 
+				<input class="nopic" type="button" value="Help" name="help" id="help" wicket:id="help" accesskey="0" >
+				<!-- linux/firefox: Shift+Alt+0, Windows/IE: Alt+0 --> 
+				<img src="pic/Question.png" border="0" alt="Hj&aelig;lp (Alt+0)" title="Hj&aelig;lp (Shift+Alt+0)" id="imghelp" onclick="clickElement('help');">
+			</td>
+			<td>Hj&aelig;lp</td>
+		</tr>
+		<tr class="odd">
+			<td align="center">
+				<!--  input type="button" accesskey="1" wicket:id="memberlist" value="_(1)_">-->
+				<input class="nopic" type="button" value="Medlemmer" name="memberlist" id="memberlist" wicket:id="memberlist" accesskey="1" > 
+				<img src="pic/User.png" border="0" alt="Medlemmer (Alt+1)" title="Medlemmer (Shift+Alt+1)" id="imgmemberlist" onclick="clickElement('memberlist');">
+			</td>
+			<td>Medlemmer/Kartotek</td>
+		</tr>
+		<tr class="even">
+			<td align="center" bgcolor="green">
+				<!--  input class="selectbutton" type="button" accesskey="2" wicket:id="pullOut" value="_(2)_">-->
+				<input class="nopic" type="button" value="pullOut" name="pullOut" id="pullOut" wicket:id="pullOut" accesskey="2" > 
+				<img src="pic/Application.png" border="0" alt="Tr&aelig;kning (Alt+2)" title="Tr&aelig;kning (Shift+Alt+2)" id="imgpullOut" onclick="clickElement('pullOut');">
+			</td>
+			<td><b>Tr&aelig;kning</b></td>
+		</tr>
+		<tr class="odd">
+			<td align="center">
+				<!--  input type="button" accesskey="3" wicket:id="reports" value="_(3)_">-->
+				<input class="nopic" type="button" value="reports" name="reports" id="reports" wicket:id="reports" accesskey="3" > 
+				<img src="pic/Database.png" border="0" alt="Lister (Alt+3)" title="Lister (Shift+Alt+3)" id="imgreports" onclick="clickElement('reports');">
+			</td>
+			<td>Lister / Rapporter</td>
+		</tr>
+		<tr class="even">
+			<td align="center" bgcolor="red">
+				<!--  input class="terminatebutton" type="button" accesskey="9" wicket:id="shutdown" value="_(9)_">-->
+				<input class="nopic" type="button" value="shutdown" name="shutdown" id="shutdown" wicket:id="shutdown" accesskey="9" > 
+				<img src="pic/Go Out.png" border="0" alt="Afslut program (Alt+9)" title="Afslut program (Shift+Alt+9)" id="imgshutdown" onclick="clickElement('shutdown');">
+			</td>
+			<td>Afslut program og <b>luk database</b></td>
+		</tr>
+		<!-- 	<tr class="odd"> -->
+		<!-- 		<td align="center"><input style="visibility:hidden" type="button" disabled="disabled"  -->
+		<!-- 			wicket:id="modal" value="Modal"></td> -->
+		<!-- 		<td style="color: Silver">ModalWindowPage</td> -->
+		<!-- 	</tr> -->
+	</table>
+
+	<br />
+
+</body>
+</html>

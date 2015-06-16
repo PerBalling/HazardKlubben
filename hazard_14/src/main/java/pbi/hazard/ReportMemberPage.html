@@ -1,0 +1,167 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h2>Hazard Liste - Medlem</h2>
+	<p>
+		<!-- <label accesskey="0"><button wicket:id="return">Tilbage
+					(0)</button> </label> -->
+		<!--  input type="button" accesskey="0" wicket:id="return" value="Tilbage (0)" /> -->
+		<input class="nopic" type="button" value="Tilbage" name="return" id="return" wicket:id="return" accesskey="0" > 
+		<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn" onclick="clickElement('return');">
+	</p>
+	<span class="feedback" wicket:id="feedback">[feedbackmessages
+		will be put here]</span>
+	<br>
+	
+	<form wicket:id="form" action="">
+
+		<table>
+			<tr>
+				<td>Antal:</td>
+				<td wicket:id="count">[Count]</td>
+			</tr>
+		</table>
+
+		<table class="smallborder w1400">
+			<thead>
+				<tr class="head">
+					<th>Nr</th>
+					<th>Fornavn</th>
+					<th>Efternavn</th>
+					<th>Mail</th>
+					<th>Tlf.</th>
+					<th>L&oslash;nnr.</th>
+					<th>Betaling</th>
+					<th><small>Ak<br>tiv</small></th>
+					<th>Opdateret</th>
+					<th>Note</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="filter">
+					<td align="center"><input type="text" dir="rtl" size="1"
+						wicket:id="capFilter"></td>
+					<td align="center"><input type="text" size="12" wicket:id="firstnameFilter">
+					</td>
+					<td align="center"><input type="text" size="12" wicket:id="lastnameFilter">
+					</td>
+					<td align="center"><input type="text" size="12" wicket:id="mailFilter">
+					</td>
+					<td></td>
+					<td align="center"><input type="text" size="6" wicket:id="contactIdFilter">
+					</td>
+					<td align="center"><select wicket:id="paymentFilter">
+							<option>1</option>
+							<option>2</option>
+					</select>
+					</td>
+					<!-- 					<td></td> -->
+					<td align="center"><input type="checkbox"
+						wicket:id="activeFilter"></td>
+					<td align="center">&gt;
+					<input type="text" size="10" wicket:id="dateFilter"/>
+					</td>
+					<td align="center"><input type="submit" value="S&oslash;g">
+						<input type="submit" wicket:id="reset" value="Nulstil"></td>
+				</tr>
+				<tr>
+					<td align="center">
+						<table>
+							<tr wicket:id="caprow">
+								<td class="list" align="right" wicket:id="cap"><small>[99]</small></td>
+							</tr>
+						</table></td>
+					<td align="center">
+						<table>
+							<tr wicket:id="fnamerow">
+								<td class="list" wicket:id="firstname"><small>[BLANKO]</small></td>
+							</tr>
+						</table></td>
+					<td align="center">
+						<table>
+							<tr wicket:id="lnamerow">
+								<td class="list" wicket:id="lastname"><small>[-]</small></td>
+							</tr>
+						</table></td>
+					<td align="center">
+						<table>
+							<tr wicket:id="emailrow">
+								<td class="list" wicket:id="email"><small>[@]</small></td>
+							</tr>
+						</table></td>
+					<td align="center">
+						<table>
+							<tr wicket:id="phonerow">
+								<td class="list" wicket:id="phone"><small>[-]</small></td>
+							</tr>
+						</table></td>
+					<td align="center">
+						<table>
+							<tr wicket:id="contactrow">
+								<td class="list" wicket:id="contact"><small>[-]</small></td>
+							</tr>
+						</table></td>
+					<td align="center">
+						<table>
+							<tr wicket:id="paymentrow">
+								<td class="list" wicket:id="payment"><small>[-]</small></td>
+							</tr>
+						</table></td>
+					<td align="center">
+						<table>
+							<tr wicket:id="activerow">
+								<td class="list" align="center" wicket:id="active"><small>[A]</small></td>
+							</tr>
+						</table></td>
+					<td align="center">
+						<table>
+							<tr wicket:id="updaterow">
+								<td class="list" wicket:id="updated"><small>[-]</small></td>
+							</tr>
+						</table></td>
+					<td align="center">
+						<table>
+							<tr wicket:id="noterow">
+								<td class="list" wicket:id="note"><small>[-]</small></td>
+							</tr>
+						</table></td>
+				</tr>
+				<!-- 				<tr> 
+					<td>
+						<table>
+							<tr wicket:id="rows">
+								<td class="list" align="right" wicket:id="cap">[99]</td>
+								<td class="list" wicket:id="firstname">[BLANKO]</td>
+								<td class="list" wicket:id="lastname">[-]</td>
+								<!--			<td wicket:id="active">[yes]</td> - - >
+								<td class="list" align="center"><input type="checkbox"
+									disabled="disabled" wicket:id="active"></td>
+								<td class="list" wicket:id="updated">[DATE]</td>
+							</tr>
+						</table></td>
+				</tr>-->
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Hazard klubben af 1981</title>
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+
+<!-- <script type="text/javascript"> -->
+<!-- 	function FocusOnInput() { -->
+<!-- 		document.getElementById("firstname").focus(); -->
+<!-- 	} -->
+<!-- </script> -->
+<script>
+	function clickElement(objName) {
+		var arr = new Array();
+		arr = document.getElementsByName(objName);
+		if (arr.length != 1) {
+			alert("Total objects with name '" + objName + "' = " + arr.length);
+			// Design error!
+		}
+		for ( var i = 0; i < arr.length; i++) {
+			var obj = document.getElementsByName(objName).item(i);
+			//alert(obj.id + " =  " + obj.value);
+			obj.click();
+		}
+	}
+</script>
+</head>
+<!-- <body onload="FocusOnInput()"> -->
+
+<body>
+	<h2>Rediger Medlem</h2>
+	<form wicket:id="form" action="">
+		<!-- width:0px -->
+		<!-- input type="button" value="Tilbage" style="width: 0px" name="return"
+			id="return" accesskey="0" onclick="JavaScript:history.back()"> -->
+		<input class="nopic" type="button" value="Tilbage"  name="return"
+			id="return" accesskey="0" wicket:id="return">
+		<!-- <button type=button value="Tilbage" style="width: 0px" name="return" id="return" accesskey="0" wicket:id="return"></button> -->
+		<img src="pic/Back.png" border="0" alt="Tilbage (Alt+0)" title="Tilbage (Shift+Alt+0)" id="imgreturn" 
+			onclick="clickElement('return');">
+		<h3>Medlem</h3>
+
+		<!--<label wicket:id="id">[id]</label>-->
+		<!--Id: <input type="text" wicket:id="id" disabled="disabled">-->
+		<table>
+			<tr>
+				<td>Nr:</td>
+				<td><span dir="rtl" wicket:id="cap">[dbCap]</span></td>
+				<!-- 			</tr> -->
+				<!-- 			<tr> -->
+				<td align="right">Aktiv:</td>
+				<td align="center"><input type="checkbox" wicket:id="active">
+				</td>
+			</tr>
+			<tr>
+				<td>Fornavn:</td>
+				<td colspan="3"><input type="text" size="40" id="firstname"
+					wicket:id="firstname">
+				</td>
+			</tr>
+			<tr>
+				<td>Efternavn:</td>
+				<td colspan="3"><input type="text" size="40"
+					wicket:id="lastname">
+				</td>
+			</tr>
+			<tr>
+				<td>Kaldenavn:</td>
+				<td colspan="3"><input type="text" size="40"
+					wicket:id="nickname">
+				</td>
+			</tr>
+			<tr>
+				<td>Email1:</td>
+				<td colspan="3"><input type="text" size="40" wicket:id="email1">
+				</td>
+			</tr>
+			<tr>
+				<td>Email2:</td>
+				<td colspan="3"><input type="text" size="40" wicket:id="email2">
+				</td>
+			</tr>
+			<tr>
+				<td>Telefon:</td>
+				<td colspan="3"><input type="text" wicket:id="phone"></td>
+			</tr>
+			<tr>
+				<td>L&oslash;nnr:</td>
+				<td colspan="3"><input type="text" wicket:id="contactid">
+				</td>
+			</tr>
+			<tr>
+				<td>Betaling:</td>
+				<td colspan="3"><input type="text" wicket:id="payment">
+				</td>
+			</tr>
+			<tr>
+				<td>Note:</td>
+				<td colspan="3"><input type="text" size="40" wicket:id="notes">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- 	<button type="submit">Gem</button>--> 
+					<input type="image" src="pic/Ok.png" border="0" alt="Gem (Enter)" title="Gem (Enter)">
+				</td>
+				<td></td>
+			</tr>
+		</table>
+
+	</form>
+	<br>
+	<span class="feedback" wicket:id="feedback">[feedbackmessages
+		will be put here]</span>
+
+	<p>
+		<span wicket:id="memberWonPanel">[Won]</span>
+	</p>
+
+</body>
+</html>
